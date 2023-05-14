@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="65dp"
         android:gravity="left"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,10 +71,10 @@
         android:layout_marginHorizontal="20sp"
         android:columnCount="2"
         android:rowCount="2"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_header">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_hewan"
@@ -88,8 +88,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left"
                 android:background="@drawable/gradient_card_primary"
+                android:gravity="left"
                 android:orientation="vertical">
 
                 <ImageView
@@ -110,6 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
                     android:text="Nama Hewan"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -130,8 +131,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left"
                 android:background="@drawable/gradient_card_primary"
+                android:gravity="left"
                 android:orientation="vertical">
 
                 <ImageView
@@ -152,7 +153,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Operasi Matematika"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="Operasi\nMatematika"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -172,8 +174,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left"
                 android:background="@drawable/gradient_card_primary"
+                android:gravity="left"
                 android:orientation="vertical">
 
                 <ImageView
@@ -195,6 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
                     android:text="Nama Organ"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -215,8 +218,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left"
                 android:background="@drawable/gradient_card_primary"
+                android:gravity="left"
                 android:orientation="vertical">
 
                 <ImageView
@@ -238,7 +241,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
                     android:text="Bangun Ruang"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
             </LinearLayout>
