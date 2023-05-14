@@ -12,6 +12,18 @@
         android:theme="@style/Theme.PembelajaranTunanetra"
         tools:targetApi="31">
         <activity
+            android:name=".GeometryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrgansActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MathActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HewanActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainMenuActivity"
             android:exported="true">
             <intent-filter>
@@ -22,7 +34,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

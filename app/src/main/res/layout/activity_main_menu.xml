@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/poppins_regular"
             android:text="Selamat Datang!"
             android:textColor="@color/secondary"
             android:textSize="28sp"
@@ -48,7 +48,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="-10dp"
+            android:fontFamily="@font/poppins_regular"
             android:text="Silahkan pilih menu!"
             android:textColor="@color/black"
             android:textSize="18sp" />
