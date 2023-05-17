@@ -50,7 +50,7 @@
     <LinearLayout
         android:id="@+id/image_layout"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/linear_layout_background"
@@ -92,58 +92,65 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_hewan" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/btn_play_voice"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginBottom="15dp"
-                android:backgroundTint="@color/secondary_variant_1"
-                app:cardCornerRadius="50dp"
-                app:cardElevation="8dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_hewan">
 
-                <ImageView
-                    android:id="@+id/btn_volume"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="20dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/volume" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_play_voice"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/secondary_variant_1"
+                    app:cardCornerRadius="50dp"
+                    android:layout_marginBottom="30dp"
+                    app:cardElevation="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/btn_volume"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/volume" />
 
-            <Button
-                android:id="@+id/btn_back"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:background="@drawable/button_background_1"
-                android:fontFamily="@font/bebas_regular"
-                android:text="Prev"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btn_volume"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image_hewan"
-                tools:ignore="NotSibling" />
+                </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/btn_next"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/button_background_1"
-                android:fontFamily="@font/bebas_regular"
-                android:text="Next"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btn_volume"
-                app:layout_constraintTop_toBottomOf="@id/image_hewan"
-                tools:ignore="NotSibling" />
+                <Button
+                    android:id="@+id/btn_back"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/button_background_1"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="Prev"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_play_voice"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_next"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/button_background_1"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="Next"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_play_voice"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
