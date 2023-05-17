@@ -12,7 +12,7 @@ import com.himawan.pembelajarantunanetra.databinding.ActivityHewanBinding
 class HewanActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityHewanBinding
-    //private lateinit var listHewan: ArrayList<DataHewan>
+    private var soundHewan: MediaPlayer? = null
 
     private lateinit var listNamaHewan: Array<String>
     private lateinit var listImageHewan: Array<Int>
@@ -28,13 +28,13 @@ class HewanActivity : AppCompatActivity(), View.OnClickListener {
         var i = 0
 
         //Initialize Variable
-        binding.imageHewan.setImageResource(listImageHewan[5])
-        binding.tvNamaHewan.text = listNamaHewan[5]
+        binding.imageHewan.setImageResource(listImageHewan[i])
+        binding.tvNamaHewan.text = listNamaHewan[i]
         val clickSound: MediaPlayer = MediaPlayer.create(this, R.raw.mouse_click)
-
 
         binding.btnNext.setOnClickListener {
             i++
+            soundHewan?.stop()
             if (i > 5) {
                 i = 0
             } else if (i < 0) {
@@ -46,6 +46,7 @@ class HewanActivity : AppCompatActivity(), View.OnClickListener {
         }
         binding.btnBack.setOnClickListener {
             i--
+            soundHewan?.stop()
             if (i > 5) {
                 i = 0
             } else if (i < 0) {
@@ -55,6 +56,48 @@ class HewanActivity : AppCompatActivity(), View.OnClickListener {
             binding.imageHewan.setImageResource(listImageHewan[i])
             binding.tvNamaHewan.text = listNamaHewan[i]
         }
+
+        binding.imageHewan.setOnClickListener {
+            when (i) {
+                0 -> {
+                    soundHewan?.stop()
+                    soundHewan?.release()
+                    soundHewan = MediaPlayer.create(this, R.raw.cat_sound)
+                    soundHewan?.start()
+                }
+                1 -> {
+                    soundHewan?.stop()
+                    soundHewan?.release()
+                    soundHewan = MediaPlayer.create(this, R.raw.dog_sound)
+                    soundHewan?.start()
+                }
+                2 -> {
+                    soundHewan?.stop()
+                    soundHewan?.release()
+                    soundHewan = MediaPlayer.create(this, R.raw.cow_sound)
+                    soundHewan?.start()
+                }
+                3 -> {
+                    soundHewan?.stop()
+                    soundHewan?.release()
+                    soundHewan = MediaPlayer.create(this, R.raw.sheep_sound)
+                    soundHewan?.start()
+                }
+                4 -> {
+                    soundHewan?.stop()
+                    soundHewan?.release()
+                    soundHewan = MediaPlayer.create(this, R.raw.horse_sound)
+                    soundHewan?.start()
+                }
+                5 -> {
+                    soundHewan?.stop()
+                    soundHewan?.release()
+                    soundHewan = MediaPlayer.create(this, R.raw.chicken_sound)
+                    soundHewan?.start()
+                }
+            }
+        }
+
         binding.btnPlayVoice.setOnClickListener(this)
     }
 
@@ -64,6 +107,7 @@ class HewanActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "Menjalankan Suara!", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     private fun dataInitialize() {

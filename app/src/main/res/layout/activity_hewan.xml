@@ -64,8 +64,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- font →← -->
-
             <ImageView
                 android:id="@+id/image_hewan"
                 android:layout_width="340dp"
@@ -105,9 +103,9 @@
                     android:id="@+id/btn_play_voice"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginBottom="30dp"
                     android:backgroundTint="@color/secondary_variant_1"
                     app:cardCornerRadius="50dp"
-                    android:layout_marginBottom="30dp"
                     app:cardElevation="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
