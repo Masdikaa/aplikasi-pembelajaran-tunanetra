@@ -3,16 +3,15 @@ package com.himawan.pembelajarantunanetra
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.himawan.pembelajarantunanetra.databinding.ActivityHewanBinding
 
-class HewanActivity : AppCompatActivity(), View.OnClickListener {
+class HewanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHewanBinding
     private var soundHewan: MediaPlayer? = null
+    private var soundVoiceOverHewan: MediaPlayer? = null
 
     private lateinit var listNamaHewan: Array<String>
     private lateinit var listImageHewan: Array<Int>
@@ -35,6 +34,9 @@ class HewanActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnNext.setOnClickListener {
             i++
             soundHewan?.stop()
+            soundHewan?.reset()
+            soundVoiceOverHewan?.stop()
+            soundVoiceOverHewan?.reset()
             if (i > 5) {
                 i = 0
             } else if (i < 0) {
@@ -47,6 +49,9 @@ class HewanActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnBack.setOnClickListener {
             i--
             soundHewan?.stop()
+            soundHewan?.reset()
+            soundVoiceOverHewan?.stop()
+            soundVoiceOverHewan?.reset()
             if (i > 5) {
                 i = 0
             } else if (i < 0) {
@@ -60,54 +65,116 @@ class HewanActivity : AppCompatActivity(), View.OnClickListener {
         binding.imageHewan.setOnClickListener {
             when (i) {
                 0 -> {
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
                     soundHewan?.stop()
-                    soundHewan?.release()
+                    soundHewan?.reset()
                     soundHewan = MediaPlayer.create(this, R.raw.cat_sound)
                     soundHewan?.start()
                 }
                 1 -> {
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
                     soundHewan?.stop()
-                    soundHewan?.release()
+                    soundHewan?.reset()
                     soundHewan = MediaPlayer.create(this, R.raw.dog_sound)
                     soundHewan?.start()
                 }
                 2 -> {
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
                     soundHewan?.stop()
-                    soundHewan?.release()
+                    soundHewan?.reset()
                     soundHewan = MediaPlayer.create(this, R.raw.cow_sound)
                     soundHewan?.start()
                 }
                 3 -> {
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
                     soundHewan?.stop()
-                    soundHewan?.release()
+                    soundHewan?.reset()
                     soundHewan = MediaPlayer.create(this, R.raw.sheep_sound)
                     soundHewan?.start()
                 }
                 4 -> {
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
                     soundHewan?.stop()
-                    soundHewan?.release()
+                    soundHewan?.reset()
                     soundHewan = MediaPlayer.create(this, R.raw.horse_sound)
                     soundHewan?.start()
                 }
                 5 -> {
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
                     soundHewan?.stop()
-                    soundHewan?.release()
+                    soundHewan?.reset()
                     soundHewan = MediaPlayer.create(this, R.raw.chicken_sound)
                     soundHewan?.start()
                 }
             }
         }
 
-        binding.btnPlayVoice.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.btn_play_voice -> {
-                Toast.makeText(this, "Menjalankan Suara!", Toast.LENGTH_SHORT).show()
+        binding.btnPlayVoice.setOnClickListener {
+            when (i) {
+                0 -> {
+                    soundHewan?.stop()
+                    soundHewan?.reset()
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
+                    soundVoiceOverHewan = MediaPlayer.create(this, R.raw.cat_desc_voice_gttx)
+                    soundVoiceOverHewan?.start()
+                }
+                1 -> {
+                    soundHewan?.stop()
+                    soundHewan?.reset()
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
+                    soundVoiceOverHewan = MediaPlayer.create(this, R.raw.dog_desc_voice_gttx)
+                    soundVoiceOverHewan?.start()
+                }
+                2 -> {
+                    soundHewan?.stop()
+                    soundHewan?.reset()
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
+                    soundVoiceOverHewan = MediaPlayer.create(this, R.raw.cow_desc_voice_gttx)
+                    soundVoiceOverHewan?.start()
+                }
+                3 -> {
+                    soundHewan?.stop()
+                    soundHewan?.reset()
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
+                    soundVoiceOverHewan = MediaPlayer.create(this, R.raw.sheep_desc_voice_gttx)
+                    soundVoiceOverHewan?.start()
+                }
+                4 -> {
+                    soundHewan?.stop()
+                    soundHewan?.reset()
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
+                    soundVoiceOverHewan = MediaPlayer.create(this, R.raw.horse_desc_voice_gttx)
+                    soundVoiceOverHewan?.start()
+                }
+                5 -> {
+                    soundHewan?.stop()
+                    soundHewan?.reset()
+                    soundVoiceOverHewan?.stop()
+                    soundVoiceOverHewan?.reset()
+                    soundVoiceOverHewan = MediaPlayer.create(this, R.raw.chicken_desc_voice_gttx)
+                    soundVoiceOverHewan?.start()
+                }
             }
         }
+    }
 
+    override fun onPause() {
+        soundHewan?.stop()
+        soundHewan?.release()
+        soundVoiceOverHewan?.stop()
+        soundVoiceOverHewan?.release()
+        super.onPause()
     }
 
     private fun dataInitialize() {
