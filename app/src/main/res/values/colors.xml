@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="gray_dot">#CFD2CF</color>
+
     <!--    PALETTE -->
     <color name="primary">#0C134F</color>
     <color name="primary_variant_1">#1D267D</color>
