@@ -1,5 +1,20 @@
 <resources>
     <string name="app_name">Pembelajaran Tunanetra</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    List Nama Hewan-->
+    <string name="hewan1">Kucing</string>
+    <string name="hewan2">Anjing</string>
+    <string name="hewan3">Sapi</string>
+    <string name="hewan4">Domba</string>
+    <string name="hewan5">Kuda</string>
+    <string name="hewan6">Ayam</string>
+
+    <!--    List Nama Organ-->
+    <string name="organ1">Mata</string>
+    <string name="organ2">Telinga</string>
+    <string name="organ3">Bibir</string>
+    <string name="organ4">Hidung</string>
+    <string name="organ5">Tangan</string>
+    <string name="organ6">Kaki</string>
+
 </resources>

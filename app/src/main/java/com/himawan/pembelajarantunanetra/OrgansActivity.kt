@@ -1,34 +1,31 @@
 package com.himawan.pembelajarantunanetra
 
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.viewpager2.widget.ViewPager2
-import com.himawan.pembelajarantunanetra.adapter.ImageSliderAdapter
 import com.himawan.pembelajarantunanetra.databinding.ActivityOrgansBinding
-import com.himawan.pembelajarantunanetra.model.ImageData
 
 class OrgansActivity : AppCompatActivity() {
     //DataBinding
     private lateinit var binding: ActivityOrgansBinding
 
-    //slideradapter and stuff
-    private lateinit var adapter: ImageSliderAdapter
-    private var list = ArrayList<ImageData>()
-    private lateinit var dots: ArrayList<TextView>
+    //Variable organ
+    private lateinit var listNamaOrgan: Array<String>
+    private lateinit var listImageOrgan: Array<Int>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOrgansBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //TEsSlider
-        firstSlideList()
-        //TEsSlider
+        dataInitialize()
+        var i = 0
 
-        var i: Int = 0
+        //Initiate 1st slide
+        binding.tvNamaOrgan.text = listNamaOrgan[i]
+        binding.imageOrgan.setImageResource(listImageOrgan[i])
+
+
         binding.btnNext.setOnClickListener {
             i++
             if (i > 5) {
@@ -37,6 +34,8 @@ class OrgansActivity : AppCompatActivity() {
                 i = 5
             }
             Log.d("Index", i.toString())
+            binding.tvNamaOrgan.text = listNamaOrgan[i]
+            binding.imageOrgan.setImageResource(listImageOrgan[i])
         }
 
         binding.btnBack.setOnClickListener {
@@ -47,57 +46,29 @@ class OrgansActivity : AppCompatActivity() {
                 i = 5
             }
             Log.d("Index", i.toString())
+            binding.tvNamaOrgan.text = listNamaOrgan[i]
+            binding.imageOrgan.setImageResource(listImageOrgan[i])
         }
 
     }
 
-    private fun firstSlideList() {
-        list.add(
-            ImageData(
-                R.drawable.cat_image
-            )
+    private fun dataInitialize() {
+        listNamaOrgan = arrayOf(
+            getString(R.string.organ1),
+            getString(R.string.organ2),
+            getString(R.string.organ3),
+            getString(R.string.organ4),
+            getString(R.string.organ5),
+            getString(R.string.organ6),
         )
-        list.add(
-            ImageData(
-                R.drawable.image_cow
-            )
+
+        listImageOrgan = arrayOf(
+            R.drawable.image_eye2,
+            R.drawable.image_ear_3,
+            R.drawable.image_lip,
+            R.drawable.image_nose,
+            R.drawable.image_hand,
+            R.drawable.image_angkle
         )
-        list.add(
-            ImageData(
-                R.drawable.horse_image
-            )
-        )
-        adapter = ImageSliderAdapter(list)
-        binding.sliderOrgan.adapter = adapter
-        dots = ArrayList()
-        setIndicator()
-
-        binding.sliderOrgan.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                selectedDot(position)
-                super.onPageSelected(position)
-
-            }
-        })
-    }
-
-    private fun setIndicator() {
-        for (i in 0 until list.size) {
-            dots.add(TextView(this))
-            dots[i].text = Html.fromHtml("&#9679", Html.FROM_HTML_MODE_LEGACY).toString()
-            dots[i].textSize = 14f
-            binding.dotsIndicator.addView(dots[i])
-        }
-    }
-
-    private fun selectedDot(position: Int) {
-        for (i in 0 until list.size) {
-            if (i == position) {
-                dots[i].setTextColor(ContextCompat.getColor(this, R.color.primary_variant_1))
-            } else {
-                dots[i].setTextColor(ContextCompat.getColor(this, R.color.gray_dot))
-            }
-        }
     }
 }

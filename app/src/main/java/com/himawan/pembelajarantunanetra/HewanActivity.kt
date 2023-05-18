@@ -29,7 +29,6 @@ class HewanActivity : AppCompatActivity() {
         //Initialize Variable
         binding.imageHewan.setImageResource(listImageHewan[i])
         binding.tvNamaHewan.text = listNamaHewan[i]
-        val clickSound: MediaPlayer = MediaPlayer.create(this, R.raw.mouse_click)
 
         binding.btnNext.setOnClickListener {
             i++
@@ -46,6 +45,7 @@ class HewanActivity : AppCompatActivity() {
             binding.imageHewan.setImageResource(listImageHewan[i])
             binding.tvNamaHewan.text = listNamaHewan[i]
         }
+
         binding.btnBack.setOnClickListener {
             i--
             soundHewan?.stop()
@@ -179,12 +179,12 @@ class HewanActivity : AppCompatActivity() {
 
     private fun dataInitialize() {
         listNamaHewan = arrayOf(
-            "Kucing",
-            "Anjing",
-            "Sapi",
-            "Domba",
-            "Kuda",
-            "Ayam"
+            getString(R.string.hewan1),
+            getString(R.string.hewan2),
+            getString(R.string.hewan3),
+            getString(R.string.hewan4),
+            getString(R.string.hewan5),
+            getString(R.string.hewan6),
         )
 
         listImageHewan = arrayOf(
