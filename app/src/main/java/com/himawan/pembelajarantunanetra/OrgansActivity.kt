@@ -3,6 +3,7 @@ package com.himawan.pembelajarantunanetra
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.himawan.pembelajarantunanetra.databinding.ActivityOrgansBinding
 
 class OrgansActivity : AppCompatActivity() {
@@ -15,6 +16,8 @@ class OrgansActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.statusBarColor =
+            ContextCompat.getColor(this, R.color.white) //Set StatusBar Color
         binding = ActivityOrgansBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
