@@ -19,7 +19,7 @@ class OrgansActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor =
-            ContextCompat.getColor(this, R.color.white) //Set StatusBar Color
+            ContextCompat.getColor(this, R.color.secondary) //Set StatusBar Color
         binding = ActivityOrgansBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
