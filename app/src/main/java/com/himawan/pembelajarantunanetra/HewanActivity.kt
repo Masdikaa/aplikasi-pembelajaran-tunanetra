@@ -170,11 +170,11 @@ class HewanActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
+        super.onPause()
         soundHewan?.stop()
         soundHewan?.release()
         soundVoiceOverHewan?.stop()
         soundVoiceOverHewan?.release()
-        super.onPause()
     }
 
     private fun dataInitialize() {
