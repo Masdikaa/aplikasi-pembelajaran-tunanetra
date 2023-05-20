@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.himawan.pembelajarantunanetra.databinding.FragmentQuizBinding
 
-private var _binding: FragmentQuizBinding? = null
-private val binding get() = _binding!!
+private var Mbinding: FragmentQuizBinding? = null
+private val binding get() = Mbinding!!
 
 class QuizFragment : Fragment() {
 
@@ -16,7 +16,7 @@ class QuizFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentQuizBinding.inflate(inflater, container, false)
+        Mbinding = FragmentQuizBinding.inflate(inflater, container, false)
         return binding.root
     }
 
