@@ -12,7 +12,7 @@ class MathActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white) //Set StatusBar Color
+        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary_variant_1) //Set StatusBar Color
         binding = ActivityMathBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

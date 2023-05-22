@@ -1,16 +1,11 @@
 package com.himawan.pembelajarantunanetra.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.himawan.pembelajarantunanetra.R
-import com.himawan.pembelajarantunanetra.database.Constants
-import com.himawan.pembelajarantunanetra.database.Question
 import com.himawan.pembelajarantunanetra.databinding.FragmentQuizBinding
 
 private var Mbinding: FragmentQuizBinding? = null
@@ -19,7 +14,6 @@ private val binding get() = Mbinding!!
 class QuizFragment : Fragment(), View.OnClickListener {
 
     //Pertanyaan dan jawaban
-    private lateinit var mQuestionList: ArrayList<Question>
     private var mCurrentPosition: Int = 0
 
     private var randomA: Int = 0
@@ -32,9 +26,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         Mbinding = FragmentQuizBinding.inflate(inflater, container, false)
-
-        //ArrayList dari class Question
-        mQuestionList = Constants.getQuestion()
 
         //SetQuestion
         randomA = (1..15).random()
@@ -52,17 +43,15 @@ class QuizFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        Log.d("ID", "${binding.radioGroup.checkedRadioButtonId}")
-        Toast.makeText(context, "${poin}", Toast.LENGTH_SHORT).show()
         mCurrentPosition++
         when (mCurrentPosition) {
             1 -> {
-                if (binding.aOption.isChecked){
+                if (binding.aOption.isChecked) {
                     poin++
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 1"
+                binding.questionNumber.text = "No 2"
                 randomA = (1..15).random()
                 randomB = (1..15).random()
                 val trueAnswer: Int = randomA + randomB
@@ -78,7 +67,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 2"
+                binding.questionNumber.text = "No 3"
                 randomA = (1..15).random()
                 randomB = (1..15).random()
                 val trueAnswer: Int = randomA + randomB
@@ -94,7 +83,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 3"
+                binding.questionNumber.text = "No 4"
                 randomA = (15..49).random()
                 randomB = (11..49).random()
                 val trueAnswer: Int = randomA + randomB
@@ -109,7 +98,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 4"
+                binding.questionNumber.text = "No 5"
                 randomA = (15..49).random()
                 randomB = (11..49).random()
                 val trueAnswer: Int = randomA + randomB
@@ -124,7 +113,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 5"
+                binding.questionNumber.text = "No 6"
                 randomA = (1..99).random()
                 randomB = (1..99).random()
                 val trueAnswer: Int = randomA + randomB
@@ -139,7 +128,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 6"
+                binding.questionNumber.text = "No 7"
                 randomA = (1..15).random()
                 randomB = (1..15).random()
                 if (randomA >= randomB) {
@@ -162,7 +151,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 7"
+                binding.questionNumber.text = "No 8"
                 randomA = (1..30).random()
                 randomB = (1..30).random()
                 if (randomA >= randomB) {
@@ -185,7 +174,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 }
 
                 binding.radioGroup.clearCheck()
-                binding.questionNumber.text = "No 8"
+                binding.questionNumber.text = "No 9"
                 randomA = (20..50).random()
                 randomB = (20..50).random()
                 if (randomA >= randomB) {
@@ -196,7 +185,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                     binding.cOption.text = "${trueAnswer}"
                 } else if (randomB >= randomA) {
                     val trueAnswer: Int = randomB - randomA
-                    binding.questionField.text = "${randomA} - ${randomB} = ?"
+                    binding.questionField.text = "${randomB} - ${randomA} = ?"
                     binding.aOption.text = "${generatePositifAnswer(trueAnswer)}"
                     binding.bOption.text = "${generateNegatifAnswer(trueAnswer)}"
                     binding.cOption.text = "${trueAnswer}"
@@ -206,26 +195,15 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 if (binding.cOption.isChecked) {
                     poin++
                 }
-                val transaction = activity?.supportFragmentManager?.beginTransaction()
-                transaction?.replace(R.id.frame_ly, FinishFragment())
-                transaction?.commit()
-                Log.d("Poin", poin.toString())
-            }
-        }
-    }
 
-    fun opstionCheckedB(view: View) {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
+                val stringPoin: String = poin.toString()
+                val bundle = Bundle()
+                bundle.putString("poin", stringPoin)
 
-            // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.b_option ->
-                    if (checked) {
-                        poin++
-                        print(poin)
-                    }
+                val fragment = FinishFragment()
+                fragment.arguments = bundle
+                fragmentManager?.beginTransaction()?.replace(R.id.frame_ly, fragment)?.commit()
+
             }
         }
     }

@@ -56,9 +56,11 @@
                     android:layout_height="32dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/tick_mark" />
 
                 <TextView
+                    android:id="@+id/tv_true_poin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -81,9 +83,11 @@
                     android:layout_height="32dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/cancel" />
 
                 <TextView
+                    android:id="@+id/tv_false_poin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
