@@ -1,9 +1,12 @@
 package com.himawan.pembelajarantunanetra.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.himawan.pembelajarantunanetra.R
 import com.himawan.pembelajarantunanetra.database.Constants
@@ -17,7 +20,12 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
     //Pertanyaan dan jawaban
     private lateinit var mQuestionList: ArrayList<Question>
-    private var mCurrentPosition: Int = 1
+    private var mCurrentPosition: Int = 0
+
+    private var randomA: Int = 0
+    private var randomB: Int = 0
+    private var poin: Int = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,117 +37,207 @@ class QuizFragment : Fragment(), View.OnClickListener {
         mQuestionList = Constants.getQuestion()
 
         //SetQuestion
-        setQuestion()
+        randomA = (1..15).random()
+        randomB = (1..15).random()
+        val trueAnswer: Int = randomA + randomB
+        binding.questionNumber.text = "No 1"
+        binding.questionField.text = "${randomA} + ${randomB} = ?"
+        binding.aOption.text = "${trueAnswer}"
+        binding.bOption.text = "${generateNegatifAnswer(trueAnswer)}"
+        binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
+
         binding.btnNext.setOnClickListener(this)
 
         return binding.root
     }
 
-    private fun setQuestion() {
-        val question: Question = mQuestionList[mCurrentPosition - 1]
-        binding.questionField.text = question.question
-        binding.aOption.text = question.optionOne.toString()
-        binding.bOption.text = question.optionTwo.toString()
-        binding.cOption.text = question.optionThree.toString()
-    }
-
-    private fun setView(question: String, a: Int, b: Int, c: Int) {
-        binding.questionField.text = question
-        binding.aOption.text = a.toString()
-        binding.bOption.text = b.toString()
-        binding.cOption.text = c.toString()
-    }
-
     override fun onClick(v: View?) {
+        Log.d("ID", "${binding.radioGroup.checkedRadioButtonId}")
+        Toast.makeText(context, "${poin}", Toast.LENGTH_SHORT).show()
+        mCurrentPosition++
         when (mCurrentPosition) {
-            0 -> {
-                val question: Question = mQuestionList[0]
-                binding.questionNumber.text = "No 1"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
-            }
             1 -> {
-                val question: Question = mQuestionList[1]
-                binding.questionNumber.text = "No 2"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
+                if (binding.aOption.isChecked){
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
+                binding.questionNumber.text = "No 1"
+                randomA = (1..15).random()
+                randomB = (1..15).random()
+                val trueAnswer: Int = randomA + randomB
+                binding.questionField.text = "${randomA} + ${randomB} = ?"
+                binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                binding.bOption.text = "${trueAnswer}"
+                binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
+
             }
             2 -> {
-                val question: Question = mQuestionList[2]
-                binding.questionNumber.text = "No 3"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
+                if (binding.bOption.isChecked) {
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
+                binding.questionNumber.text = "No 2"
+                randomA = (1..15).random()
+                randomB = (1..15).random()
+                val trueAnswer: Int = randomA + randomB
+                binding.questionField.text = "${randomA} + ${randomB} = ?"
+                binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                binding.bOption.text = "${generatePositifAnswer(trueAnswer)}"
+                binding.cOption.text = "${trueAnswer}"
+
             }
             3 -> {
-                val question: Question = mQuestionList[3]
-                binding.questionNumber.text = "No 4"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
+                if (binding.cOption.isChecked) {
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
+                binding.questionNumber.text = "No 3"
+                randomA = (15..49).random()
+                randomB = (11..49).random()
+                val trueAnswer: Int = randomA + randomB
+                binding.questionField.text = "${randomA} + ${randomB} = ?"
+                binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                binding.bOption.text = "${trueAnswer}"
+                binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
             }
             4 -> {
-                val question: Question = mQuestionList[4]
-                binding.questionNumber.text = "No 5"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
+                if (binding.bOption.isChecked) {
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
+                binding.questionNumber.text = "No 4"
+                randomA = (15..49).random()
+                randomB = (11..49).random()
+                val trueAnswer: Int = randomA + randomB
+                binding.questionField.text = "${randomA} + ${randomB} = ?"
+                binding.aOption.text = "${trueAnswer}"
+                binding.bOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
             }
             5 -> {
-                val question: Question = mQuestionList[5]
-                binding.questionNumber.text = "No 6"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
+                if (binding.aOption.isChecked) {
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
+                binding.questionNumber.text = "No 5"
+                randomA = (1..99).random()
+                randomB = (1..99).random()
+                val trueAnswer: Int = randomA + randomB
+                binding.questionField.text = "${randomA} + ${randomB} = ?"
+                binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                binding.bOption.text = "${trueAnswer}"
+                binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
             }
             6 -> {
-                val question: Question = mQuestionList[6]
-                binding.questionNumber.text = "No 7"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
+                if (binding.bOption.isChecked) {
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
+                binding.questionNumber.text = "No 6"
+                randomA = (1..15).random()
+                randomB = (1..15).random()
+                if (randomA >= randomB) {
+                    val trueAnswer: Int = randomA - randomB
+                    binding.questionField.text = "${randomA} - ${randomB} = ?"
+                    binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                    binding.bOption.text = "${trueAnswer}"
+                    binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
+                } else if (randomB >= randomA) {
+                    val trueAnswer: Int = randomB - randomA
+                    binding.questionField.text = "${randomB} - ${randomA} = ?"
+                    binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                    binding.bOption.text = "${trueAnswer}"
+                    binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
+                }
             }
             7 -> {
-                val question: Question = mQuestionList[7]
+                if (binding.bOption.isChecked) {
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
+                binding.questionNumber.text = "No 7"
+                randomA = (1..30).random()
+                randomB = (1..30).random()
+                if (randomA >= randomB) {
+                    val trueAnswer: Int = randomA - randomB
+                    binding.questionField.text = "${randomA} - ${randomB} = ?"
+                    binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                    binding.bOption.text = "${generatePositifAnswer(trueAnswer)}"
+                    binding.cOption.text = "${trueAnswer}"
+                } else if (randomB >= randomA) {
+                    val trueAnswer: Int = randomB - randomA
+                    binding.questionField.text = "${randomB} - ${randomA} = ?"
+                    binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                    binding.bOption.text = "${generatePositifAnswer(trueAnswer)}"
+                    binding.cOption.text = "${trueAnswer}"
+                }
+            }
+            8 -> {
+                if (binding.cOption.isChecked) {
+                    poin++
+                }
+
+                binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 8"
-                binding.btnNext.text = "Finish"
-                setView(
-                    question.question,
-                    question.optionOne,
-                    question.optionTwo,
-                    question.optionThree
-                )
+                randomA = (20..50).random()
+                randomB = (20..50).random()
+                if (randomA >= randomB) {
+                    val trueAnswer: Int = randomA - randomB
+                    binding.questionField.text = "${randomA} - ${randomB} = ?"
+                    binding.aOption.text = "${generatePositifAnswer(trueAnswer)}"
+                    binding.bOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                    binding.cOption.text = "${trueAnswer}"
+                } else if (randomB >= randomA) {
+                    val trueAnswer: Int = randomB - randomA
+                    binding.questionField.text = "${randomA} - ${randomB} = ?"
+                    binding.aOption.text = "${generatePositifAnswer(trueAnswer)}"
+                    binding.bOption.text = "${generateNegatifAnswer(trueAnswer)}"
+                    binding.cOption.text = "${trueAnswer}"
+                }
             }
             else -> {
+                if (binding.cOption.isChecked) {
+                    poin++
+                }
                 val transaction = activity?.supportFragmentManager?.beginTransaction()
                 transaction?.replace(R.id.frame_ly, FinishFragment())
                 transaction?.commit()
+                Log.d("Poin", poin.toString())
             }
         }
-        mCurrentPosition++
+    }
+
+    fun opstionCheckedB(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.b_option ->
+                    if (checked) {
+                        poin++
+                        print(poin)
+                    }
+            }
+        }
+    }
+
+    fun generateNegatifAnswer(answer: Int): Int {
+        val randomNumber = (1..4).random()
+        return answer - randomNumber
+    }
+
+    fun generatePositifAnswer(answer: Int): Int {
+        val randomNumber = (1..4).random()
+        return answer + randomNumber
     }
 
 }

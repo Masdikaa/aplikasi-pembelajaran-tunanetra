@@ -2,7 +2,8 @@ package com.himawan.pembelajarantunanetra.database
 
 data class Question(
     val id: Int,
-    val question: String,
+    val questionA: Unit,
+    val questionB: Unit,
     val optionOne: Int,
     val optionTwo: Int,
     val optionThree: Int,
