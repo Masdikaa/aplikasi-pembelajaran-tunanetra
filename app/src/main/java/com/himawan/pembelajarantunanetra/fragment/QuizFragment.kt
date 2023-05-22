@@ -17,9 +17,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
     //Pertanyaan dan jawaban
     private lateinit var mQuestionList: ArrayList<Question>
-
-    private var mSelectedPosition: Int = 0
-    private var mCorrectAnswer: Int = 0
     private var mCurrentPosition: Int = 1
 
     override fun onCreateView(
@@ -57,6 +54,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
         when (mCurrentPosition) {
             0 -> {
                 val question: Question = mQuestionList[0]
+                binding.questionNumber.text = "No 1"
                 setView(
                     question.question,
                     question.optionOne,
@@ -66,6 +64,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
             }
             1 -> {
                 val question: Question = mQuestionList[1]
+                binding.questionNumber.text = "No 2"
                 setView(
                     question.question,
                     question.optionOne,
@@ -75,6 +74,58 @@ class QuizFragment : Fragment(), View.OnClickListener {
             }
             2 -> {
                 val question: Question = mQuestionList[2]
+                binding.questionNumber.text = "No 3"
+                setView(
+                    question.question,
+                    question.optionOne,
+                    question.optionTwo,
+                    question.optionThree
+                )
+            }
+            3 -> {
+                val question: Question = mQuestionList[3]
+                binding.questionNumber.text = "No 4"
+                setView(
+                    question.question,
+                    question.optionOne,
+                    question.optionTwo,
+                    question.optionThree
+                )
+            }
+            4 -> {
+                val question: Question = mQuestionList[4]
+                binding.questionNumber.text = "No 5"
+                setView(
+                    question.question,
+                    question.optionOne,
+                    question.optionTwo,
+                    question.optionThree
+                )
+            }
+            5 -> {
+                val question: Question = mQuestionList[5]
+                binding.questionNumber.text = "No 6"
+                setView(
+                    question.question,
+                    question.optionOne,
+                    question.optionTwo,
+                    question.optionThree
+                )
+            }
+            6 -> {
+                val question: Question = mQuestionList[6]
+                binding.questionNumber.text = "No 7"
+                setView(
+                    question.question,
+                    question.optionOne,
+                    question.optionTwo,
+                    question.optionThree
+                )
+            }
+            7 -> {
+                val question: Question = mQuestionList[7]
+                binding.questionNumber.text = "No 8"
+                binding.btnNext.text = "Finish"
                 setView(
                     question.question,
                     question.optionOne,
