@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.himawan.pembelajarantunanetra.MainMenuActivity
+import com.himawan.pembelajarantunanetra.activity.MainMenuActivity
 import com.himawan.pembelajarantunanetra.R
 import com.himawan.pembelajarantunanetra.databinding.FragmentFinishBinding
 

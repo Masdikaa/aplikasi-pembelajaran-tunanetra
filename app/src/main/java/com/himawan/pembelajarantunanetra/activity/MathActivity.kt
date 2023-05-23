@@ -1,10 +1,11 @@
-package com.himawan.pembelajarantunanetra
+package com.himawan.pembelajarantunanetra.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import com.himawan.pembelajarantunanetra.R
 import com.himawan.pembelajarantunanetra.databinding.ActivityMathBinding
 
 class MathActivity : AppCompatActivity() {

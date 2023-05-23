@@ -1,4 +1,4 @@
-package com.himawan.pembelajarantunanetra
+package com.himawan.pembelajarantunanetra.activity
 
 import android.content.Intent
 import android.media.MediaPlayer
@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import com.himawan.pembelajarantunanetra.*
 import com.himawan.pembelajarantunanetra.databinding.ActivityMainMenuBinding
 
 class MainMenuActivity : AppCompatActivity(), View.OnClickListener {

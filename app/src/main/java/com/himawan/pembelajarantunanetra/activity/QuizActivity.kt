@@ -1,9 +1,10 @@
-package com.himawan.pembelajarantunanetra
+package com.himawan.pembelajarantunanetra.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import com.himawan.pembelajarantunanetra.R
 import com.himawan.pembelajarantunanetra.databinding.ActivityQuizBinding
 import com.himawan.pembelajarantunanetra.fragment.QuizFragment
 

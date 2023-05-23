@@ -1,4 +1,4 @@
-package com.himawan.pembelajarantunanetra
+package com.himawan.pembelajarantunanetra.activity
 
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import com.himawan.pembelajarantunanetra.R
 import com.himawan.pembelajarantunanetra.databinding.ActivityHewanBinding
 
 class HewanActivity : AppCompatActivity() {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pembelajaran Tunanetra</string>
+    <string name="app_name">Lovidu</string>
 
     <!--    List Nama Hewan-->
     <string name="hewan1">Kucing</string>
@@ -25,8 +25,6 @@
     <string name="bangun_ruang_5">Bola</string>
     <string name="bangun_ruang_6">Kerucut</string>
     <string name="bangun_ruang_7">Silinder</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-
+    <string name="credit">&#169; 2023 MasdikaIlhanMansiz</string>
 </resources>
