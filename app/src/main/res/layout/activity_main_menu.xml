@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainMenuActivity">
 
-    <ImageView
-        android:id="@+id/about_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/about"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -25,7 +14,8 @@
         android:alpha="0.8"
         android:background="@drawable/ornamen3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds" />
 
     <LinearLayout
         android:layout_width="100dp"
@@ -35,15 +25,16 @@
         android:alpha="0.8"
         android:background="@drawable/ornamen4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds" />
 
     <LinearLayout
         android:id="@+id/menu_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="65dp"
-        android:gravity="left"
+        android:gravity="start"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
-            android:text="Selamat Datang!"
+            android:text="@string/main_menu_title"
             android:textColor="@color/secondary"
             android:textSize="28sp"
             android:textStyle="bold" />
@@ -63,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-10dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="Silahkan pilih menu!"
+            android:text="@string/main_menu_desc"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -103,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient_card_primary"
-                android:gravity="left"
+                android:gravity="start"
                 android:orientation="vertical">
 
                 <ImageView
@@ -111,7 +102,8 @@
                     android:layout_height="80dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/cat" />
+                    android:src="@drawable/cat"
+                    tools:ignore="ContentDescription" />
 
                 <View
                     android:layout_width="match_parent"
@@ -125,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/bebas_regular"
-                    android:text="Nama Hewan"
+                    android:text="@string/nama_hewan_option"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -146,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient_card_primary"
-                android:gravity="left"
+                android:gravity="start"
                 android:orientation="vertical">
 
                 <ImageView
@@ -154,7 +146,8 @@
                     android:layout_height="80dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/calculator" />
+                    android:src="@drawable/calculator"
+                    tools:ignore="ContentDescription" />
 
                 <View
                     android:layout_width="match_parent"
@@ -168,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/bebas_regular"
-                    android:text="Operasi\nMatematika"
+                    android:text="@string/operasi_matematika_option"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -189,7 +182,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient_card_primary"
-                android:gravity="left"
+                android:gravity="start"
                 android:orientation="vertical">
 
                 <ImageView
@@ -198,7 +191,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:padding="3dp"
-                    android:src="@drawable/heart" />
+                    android:src="@drawable/human_body"
+                    tools:ignore="ContentDescription" />
 
                 <View
                     android:layout_width="match_parent"
@@ -212,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/bebas_regular"
-                    android:text="Nama Organ"
+                    android:text="@string/anggota_tubuh_manusia_option"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -233,7 +227,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient_card_primary"
-                android:gravity="left"
+                android:gravity="start"
                 android:orientation="vertical">
 
                 <ImageView
@@ -242,7 +236,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:padding="3dp"
-                    android:src="@drawable/geometry" />
+                    android:src="@drawable/geometry"
+                    tools:ignore="ContentDescription" />
 
                 <View
                     android:layout_width="match_parent"
@@ -256,7 +251,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/bebas_regular"
-                    android:text="Bangun Ruang"
+                    android:text="@string/bangun_ruang_option"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -269,10 +264,11 @@
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="-40dp"
+        android:layout_marginStart="-40dp"
         android:background="@drawable/ornamen1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintBounds" />
 
     <LinearLayout
         android:layout_width="100dp"
@@ -281,6 +277,7 @@
         android:alpha="0.8"
         android:background="@drawable/ornamen2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintBounds" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

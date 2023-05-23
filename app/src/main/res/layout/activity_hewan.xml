@@ -84,8 +84,8 @@
 
             <ImageView
                 android:id="@+id/image_hewan"
-                android:layout_width="340dp"
-                android:layout_height="340dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="30dp"
                 android:src="@color/purple_500"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
 
             <TextView
                 android:id="@+id/tv_nama_hewan"
-                android:layout_width="340dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
@@ -110,7 +110,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="160dp"
                 android:layout_marginTop="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -144,7 +144,7 @@
                     android:id="@+id/btn_back"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@drawable/button_background_1"
                     android:fontFamily="@font/bebas_regular"
                     android:text="Prev"
@@ -157,7 +157,7 @@
                     android:id="@+id/btn_next"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="20dp"
                     android:background="@drawable/button_background_1"
                     android:fontFamily="@font/bebas_regular"
                     android:text="Next"

@@ -26,5 +26,12 @@
     <string name="bangun_ruang_6">Kerucut</string>
     <string name="bangun_ruang_7">Silinder</string>
 
+    <!--    String Layout-->
     <string name="credit">&#169; 2023 MasdikaIlhanMansiz</string>
+    <string name="main_menu_title">Selamat Datang!</string>
+    <string name="main_menu_desc">Silahkan pilih menu!</string>
+    <string name="nama_hewan_option">Nama Hewan</string>
+    <string name="operasi_matematika_option">Operasi\nMatematika</string>
+    <string name="anggota_tubuh_manusia_option">Anggota tubuh\nmanusia</string>
+    <string name="bangun_ruang_option">Bangun Ruang</string>
 </resources>

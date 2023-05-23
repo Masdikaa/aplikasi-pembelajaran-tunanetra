@@ -28,7 +28,6 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
         binding.cardMatematika.setOnClickListener(this)
         binding.cardOrgan.setOnClickListener(this)
         binding.cardBangunRuang.setOnClickListener(this)
-
     }
 
     override fun onClick(v: View) {

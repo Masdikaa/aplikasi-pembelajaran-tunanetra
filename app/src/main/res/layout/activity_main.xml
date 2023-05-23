@@ -23,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            android:src="@drawable/app_icon" />
+            android:src="@drawable/app_icon"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
     </androidx.cardview.widget.CardView>
 
@@ -36,7 +37,8 @@
         android:src="@drawable/title_app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_splash" />
+        app:layout_constraintTop_toBottomOf="@id/image_splash"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="match_parent"
@@ -47,10 +49,11 @@
         android:gravity="center"
         android:text="@string/credit"
         android:textAlignment="center"
-        android:textColor="@color/primary"
+        android:textColor="#283593"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <ProgressBar
         android:id="@+id/progressBar"

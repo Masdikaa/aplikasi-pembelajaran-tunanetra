@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.himawan.pembelajarantunanetra.activity.MainMenuActivity
 import com.himawan.pembelajarantunanetra.R
+import com.himawan.pembelajarantunanetra.activity.MainMenuActivity
 import com.himawan.pembelajarantunanetra.databinding.FragmentFinishBinding
 
-private var _binding: FragmentFinishBinding? = null
-private val binding get() = _binding!!
-
+@Suppress("DEPRECATION")
 class FinishFragment : Fragment() {
+
+    private var _binding: FragmentFinishBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +27,7 @@ class FinishFragment : Fragment() {
         binding.tvTruePoin.text = poin.toString()
 
         val stringPoin: String = poin.toString()
-        val falsePoin: Int = 9 - stringPoin.toInt()
+        val falsePoin: Int = 10 - stringPoin.toInt()
         binding.tvFalsePoin.text = falsePoin.toString()
 
         binding.btnMenu.setOnClickListener {
