@@ -15,7 +15,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
     //Pertanyaan dan jawaban
     private var mCurrentPosition: Int = 0
-
     private var randomA: Int = 0
     private var randomB: Int = 0
     private var poin: Int = 0
@@ -26,7 +25,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
     ): View {
         Mbinding = FragmentQuizBinding.inflate(inflater, container, false)
 
-        //SetQuestion
         randomA = (1..15).random()
         randomB = (1..15).random()
         val trueAnswer: Int = randomA + randomB

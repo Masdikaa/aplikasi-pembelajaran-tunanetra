@@ -8,7 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import com.himawan.pembelajarantunanetra.*
+import com.himawan.pembelajarantunanetra.R
 import com.himawan.pembelajarantunanetra.databinding.ActivityMainMenuBinding
 
 class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
@@ -61,15 +61,23 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onPause() {
         super.onPause()
-        if (mp !== null) mp?.pause()
+        try {
+            if (mp !== null) mp?.pause()
+        } catch (e: java.lang.NullPointerException) {
+            Log.e("Error", " E : $e")
+        }
     }
 
     private fun playSound(id: Int) {
-        if (mp == null) {
-            mp = MediaPlayer.create(this, id)
-            Log.d("MainMenuActivity", "ID = ${mp!!.audioSessionId}")
+        try {
+            if (mp == null) {
+                mp = MediaPlayer.create(this, id)
+                Log.d("MainMenuActivity", "ID = ${mp!!.audioSessionId}")
+            }
+            mp?.start()
+            mp?.isLooping = true
+        } catch (e: java.lang.NullPointerException) {
+            Log.e("Error", " E : $e")
         }
-        mp?.start()
-        mp?.isLooping = true
     }
 }
