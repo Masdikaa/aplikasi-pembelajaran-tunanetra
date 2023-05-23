@@ -20,8 +20,8 @@
     <!--    List Nama Bangun Ruang-->
     <string name="bangun_ruang_1">Kubus</string>
     <string name="bangun_ruang_2">Balok</string>
-    <string name="bangun_ruang_3">Limas</string>
-    <string name="bangun_ruang_4">Prisma</string>
+    <string name="bangun_ruang_3">Limas Segitiga</string>
+    <string name="bangun_ruang_4">Prisma Segitiga</string>
     <string name="bangun_ruang_5">Bola</string>
     <string name="bangun_ruang_6">Kerucut</string>
     <string name="bangun_ruang_7">Silinder</string>

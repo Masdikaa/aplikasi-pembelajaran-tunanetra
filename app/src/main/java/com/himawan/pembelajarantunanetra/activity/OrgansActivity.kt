@@ -17,92 +17,82 @@ class OrgansActivity : AppCompatActivity() {
     private lateinit var listNamaOrgan: Array<String>
     private lateinit var listImageOrgan: Array<Int>
     private var soundVoiceOverOrgan: MediaPlayer? = null
+    private var currentIndex: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor =
-            ContextCompat.getColor(this, R.color.secondary) //Set StatusBar Color
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //Always LightTheme
+        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = ActivityOrgansBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         dataInitialize()
-        var i = 0
-
-        //Initiate 1st slide
-        binding.tvNamaOrgan.text = listNamaOrgan[i]
-        binding.imageOrgan.setImageResource(listImageOrgan[i])
-
+        setViewIndex()
 
         binding.btnNext.setOnClickListener {
-            i++
-            if (i > 5) {
-                i = 0
-            } else if (i < 0) {
-                i = 5
-            }
-            Log.d("Index", i.toString())
-            binding.tvNamaOrgan.text = listNamaOrgan[i]
-            binding.imageOrgan.setImageResource(listImageOrgan[i])
-            soundVoiceOverOrgan?.stop()
-            soundVoiceOverOrgan?.reset()
+            currentIndex++
+            setCurrentIndex()
+            setViewIndex()
+            stopAudio(soundVoiceOverOrgan)
         }
 
         binding.btnBack.setOnClickListener {
-            i--
-            if (i > 5) {
-                i = 0
-            } else if (i < 0) {
-                i = 5
-            }
-            Log.d("Index", i.toString())
-            binding.tvNamaOrgan.text = listNamaOrgan[i]
-            binding.imageOrgan.setImageResource(listImageOrgan[i])
-            soundVoiceOverOrgan?.stop()
-            soundVoiceOverOrgan?.reset()
+            currentIndex--
+            setCurrentIndex()
+            setViewIndex()
+            stopAudio(soundVoiceOverOrgan)
         }
 
         binding.btnPlayVoice.setOnClickListener {
-            when (i) {
+            when (currentIndex) {
                 0 -> {
-                    soundVoiceOverOrgan?.stop()
-                    soundVoiceOverOrgan?.reset()
-                    soundVoiceOverOrgan = MediaPlayer.create(this, R.raw.eyes_desc_voice_gttx)
-                    soundVoiceOverOrgan?.start()
+                    audioManager(soundVoiceOverOrgan, R.raw.eyes_desc_voice_gttx)
                 }
                 1 -> {
-                    soundVoiceOverOrgan?.stop()
-                    soundVoiceOverOrgan?.reset()
-                    soundVoiceOverOrgan = MediaPlayer.create(this, R.raw.ear_desc_voice_gttx)
-                    soundVoiceOverOrgan?.start()
+                    audioManager(soundVoiceOverOrgan, R.raw.ear_desc_voice_gttx)
                 }
                 2 -> {
-                    soundVoiceOverOrgan?.stop()
-                    soundVoiceOverOrgan?.reset()
-                    soundVoiceOverOrgan = MediaPlayer.create(this, R.raw.lips_desc_voice_gttx)
-                    soundVoiceOverOrgan?.start()
+                    audioManager(soundVoiceOverOrgan, R.raw.lips_desc_voice_gttx)
                 }
                 3 -> {
-                    soundVoiceOverOrgan?.stop()
-                    soundVoiceOverOrgan?.reset()
-                    soundVoiceOverOrgan = MediaPlayer.create(this, R.raw.nose_desc_voice_gttx)
-                    soundVoiceOverOrgan?.start()
+                    audioManager(soundVoiceOverOrgan, R.raw.nose_desc_voice_gttx)
                 }
                 4 -> {
-                    soundVoiceOverOrgan?.stop()
-                    soundVoiceOverOrgan?.reset()
-                    soundVoiceOverOrgan = MediaPlayer.create(this, R.raw.hand_desc_voice_gttx)
-                    soundVoiceOverOrgan?.start()
+                    audioManager(soundVoiceOverOrgan, R.raw.hand_desc_voice_gttx)
                 }
                 5 -> {
-                    soundVoiceOverOrgan?.stop()
-                    soundVoiceOverOrgan?.reset()
-                    soundVoiceOverOrgan = MediaPlayer.create(this, R.raw.foot_desc_voice_gttx)
-                    soundVoiceOverOrgan?.start()
+                    audioManager(soundVoiceOverOrgan, R.raw.foot_desc_voice_gttx)
                 }
             }
         }
+    }
 
+    private fun audioManager(mp: MediaPlayer?, res: Int) {
+        try {
+            stopAudio(mp)
+            soundVoiceOverOrgan = MediaPlayer.create(this, res)
+            soundVoiceOverOrgan?.start()
+        } catch (e: Exception) {
+            Log.e("Error", " E : $e")
+        }
+    }
+
+    private fun stopAudio(mp1: MediaPlayer?) {
+        mp1?.stop()
+        mp1?.reset()
+    }
+
+    private fun setViewIndex() {
+        binding.tvNamaOrgan.text = listNamaOrgan[currentIndex]
+        binding.imageOrgan.setImageResource(listImageOrgan[currentIndex])
+    }
+
+    private fun setCurrentIndex() {
+        if (currentIndex > 5) {
+            currentIndex = 0
+        } else if (currentIndex < 0) {
+            currentIndex = 5
+        }
     }
 
     private fun dataInitialize() {
@@ -114,7 +104,6 @@ class OrgansActivity : AppCompatActivity() {
             getString(R.string.organ5),
             getString(R.string.organ6),
         )
-
         listImageOrgan = arrayOf(
             R.drawable.image_eye2,
             R.drawable.image_ear_3,

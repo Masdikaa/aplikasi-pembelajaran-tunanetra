@@ -16,9 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //Set default app theme to light theme
-        window.statusBarColor =
-            ContextCompat.getColor(this, R.color.secondary) //Set StatusBar Color
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary_variant_1)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

@@ -19,10 +19,9 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
     private var backsoundHome: MutableList<Int> = mutableListOf(R.raw.backsound_home_menu)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor =
-            ContextCompat.getColor(this, R.color.secondary) //Set StatusBar Color
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //Always LightTheme
-        binding = ActivityMainMenuBinding.inflate(layoutInflater) // InflateBinding
+        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.cardHewan.setOnClickListener(this)

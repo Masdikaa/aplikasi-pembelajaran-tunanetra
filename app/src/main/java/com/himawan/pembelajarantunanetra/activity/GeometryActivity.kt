@@ -13,97 +13,85 @@ class GeometryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGeometryBinding
 
-    //Variable bangun ruang
     private lateinit var listNamaBangunRuang: Array<String>
     private lateinit var listImageBangunRuang: Array<Int>
     private var soundVoiceOverGeometry: MediaPlayer? = null
+    private var currentIndex: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor =
-            ContextCompat.getColor(this, R.color.secondary) //Set StatusBar Color
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //Always LightTheme
+        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = ActivityGeometryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Inisiasi data bangun ruang
         dataInitialize()
-        var i = 0;
-
-        //Initiate 1st layout
-        binding.imageBangunRuang.setImageResource(listImageBangunRuang[i])
-        binding.tvNamaBangunRuang.text = listNamaBangunRuang[i]
+        setViewIndex()
 
         binding.btnNext.setOnClickListener {
-            i++
-            if (i > 5) {
-                i = 0
-            } else if (i < 0) {
-                i = 5
-            }
-            Log.d("Index", i.toString())
-            soundVoiceOverGeometry?.stop()
-            soundVoiceOverGeometry?.reset()
-            binding.imageBangunRuang.setImageResource(listImageBangunRuang[i])
-            binding.tvNamaBangunRuang.text = listNamaBangunRuang[i]
+            currentIndex++
+            setCurrentIndex()
+            stopAudio(soundVoiceOverGeometry)
+            setViewIndex()
         }
 
         binding.btnBack.setOnClickListener {
-            i--
-            if (i > 5) {
-                i = 0
-            } else if (i < 0) {
-                i = 5
-            }
-            Log.d("Index", i.toString())
-            soundVoiceOverGeometry?.stop()
-            soundVoiceOverGeometry?.reset()
-            binding.imageBangunRuang.setImageResource(listImageBangunRuang[i])
-            binding.tvNamaBangunRuang.text = listNamaBangunRuang[i]
+            currentIndex--
+            setCurrentIndex()
+            stopAudio(soundVoiceOverGeometry)
+            setViewIndex()
         }
 
         binding.btnPlayVoice.setOnClickListener {
-            when (i) {
+            when (currentIndex) {
                 0 -> {
-                    soundVoiceOverGeometry?.stop()
-                    soundVoiceOverGeometry?.reset()
-                    soundVoiceOverGeometry = MediaPlayer.create(this, R.raw.cube_desc_voice_gttx)
-                    soundVoiceOverGeometry?.start()
+                    audioManager(soundVoiceOverGeometry, R.raw.cube_desc_voice_gttx)
                 }
                 1 -> {
-                    soundVoiceOverGeometry?.stop()
-                    soundVoiceOverGeometry?.reset()
-                    soundVoiceOverGeometry = MediaPlayer.create(this, R.raw.cuboid_desc_voice_gttx)
-                    soundVoiceOverGeometry?.start()
+                    audioManager(soundVoiceOverGeometry, R.raw.cuboid_desc_voice_gttx)
                 }
                 2 -> {
-                    soundVoiceOverGeometry?.stop()
-                    soundVoiceOverGeometry?.reset()
-                    soundVoiceOverGeometry =
-                        MediaPlayer.create(this, R.raw.pyramid_desc_voice_gttx)
-                    soundVoiceOverGeometry?.start()
+                    audioManager(soundVoiceOverGeometry, R.raw.pyramid_desc_voice_gttx)
                 }
                 3 -> {
-                    soundVoiceOverGeometry?.stop()
-                    soundVoiceOverGeometry?.reset()
-                    soundVoiceOverGeometry =
-                        MediaPlayer.create(this, R.raw.triangular_desc_voice_gttx)
-                    soundVoiceOverGeometry?.start()
+                    audioManager(soundVoiceOverGeometry, R.raw.triangular_desc_voice_gttx)
                 }
                 4 -> {
-                    soundVoiceOverGeometry?.stop()
-                    soundVoiceOverGeometry?.reset()
-                    soundVoiceOverGeometry = MediaPlayer.create(this, R.raw.sphere_desc_voice_gttx)
-                    soundVoiceOverGeometry?.start()
+                    audioManager(soundVoiceOverGeometry, R.raw.sphere_desc_voice_gttx)
                 }
                 5 -> {
-                    soundVoiceOverGeometry?.stop()
-                    soundVoiceOverGeometry?.reset()
-                    soundVoiceOverGeometry = MediaPlayer.create(this, R.raw.cone_desc_voice_gttx)
-                    soundVoiceOverGeometry?.start()
+                    audioManager(soundVoiceOverGeometry, R.raw.cone_desc_voice_gttx)
                 }
             }
         }
+    }
 
+    private fun setCurrentIndex() {
+        if (currentIndex > 5) {
+            currentIndex = 0
+        } else if (currentIndex < 0) {
+            currentIndex = 5
+        }
+    }
+
+    private fun stopAudio(mp1: MediaPlayer?) {
+        mp1?.stop()
+        mp1?.reset()
+    }
+
+    private fun audioManager(mp: MediaPlayer?, res: Int) {
+        try {
+            stopAudio(mp)
+            soundVoiceOverGeometry = MediaPlayer.create(this, res)
+            soundVoiceOverGeometry?.start()
+        } catch (e: Exception) {
+            Log.e("Error", " E : $e")
+        }
+    }
+
+    private fun setViewIndex() {
+        binding.imageBangunRuang.setImageResource(listImageBangunRuang[currentIndex])
+        binding.tvNamaBangunRuang.text = listNamaBangunRuang[currentIndex]
     }
 
     override fun onPause() {
@@ -133,5 +121,4 @@ class GeometryActivity : AppCompatActivity() {
             R.drawable.cylinder
         )
     }
-
 }
