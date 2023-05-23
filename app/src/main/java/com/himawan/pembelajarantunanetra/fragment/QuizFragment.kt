@@ -20,7 +20,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
     private var randomB: Int = 0
     private var poin: Int = 0
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,7 +48,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 if (binding.aOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 2"
                 randomA = (1..15).random()
@@ -59,13 +57,11 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
                 binding.bOption.text = "${trueAnswer}"
                 binding.cOption.text = "${generatePositifAnswer(trueAnswer)}"
-
             }
             2 -> {
                 if (binding.bOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 3"
                 randomA = (1..15).random()
@@ -75,13 +71,11 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 binding.aOption.text = "${generateNegatifAnswer(trueAnswer)}"
                 binding.bOption.text = "${generatePositifAnswer(trueAnswer)}"
                 binding.cOption.text = "${trueAnswer}"
-
             }
             3 -> {
                 if (binding.cOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 4"
                 randomA = (15..49).random()
@@ -96,7 +90,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 if (binding.bOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 5"
                 randomA = (15..49).random()
@@ -111,7 +104,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 if (binding.aOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 6"
                 randomA = (1..99).random()
@@ -126,7 +118,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 if (binding.bOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 7"
                 randomA = (1..15).random()
@@ -149,7 +140,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 if (binding.bOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 8"
                 randomA = (1..30).random()
@@ -172,7 +162,6 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 if (binding.cOption.isChecked) {
                     poin++
                 }
-
                 binding.radioGroup.clearCheck()
                 binding.questionNumber.text = "No 9"
                 randomA = (20..50).random()
@@ -204,6 +193,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
                 fragment.arguments = bundle
                 fragmentManager?.beginTransaction()?.replace(R.id.frame_ly, fragment)?.commit()
 
+                onStop()
             }
         }
     }

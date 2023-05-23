@@ -31,6 +31,7 @@ class FinishFragment : Fragment() {
 
         binding.btnMenu.setOnClickListener {
             startActivity(Intent(context, MainMenuActivity::class.java))
+            onStop()
         }
 
         binding.btnPlayAgain.setOnClickListener {

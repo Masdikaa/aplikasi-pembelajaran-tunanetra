@@ -4,6 +4,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.himawan.pembelajarantunanetra.databinding.ActivityGeometryBinding
 
@@ -19,6 +20,7 @@ class GeometryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         window.statusBarColor =
             ContextCompat.getColor(this, R.color.secondary) //Set StatusBar Color
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //Always LightTheme
         binding = ActivityGeometryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
