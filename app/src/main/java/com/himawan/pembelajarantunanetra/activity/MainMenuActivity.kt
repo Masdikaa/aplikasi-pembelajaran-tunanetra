@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
@@ -17,6 +18,7 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mp: MediaPlayer? = null
     private var backsoundHome: MutableList<Int> = mutableListOf(R.raw.backsound_home_menu)
+    private var backPress: Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = ContextCompat.getColor(this, R.color.secondary)
@@ -28,6 +30,7 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
         binding.cardMatematika.setOnClickListener(this)
         binding.cardOrgan.setOnClickListener(this)
         binding.cardBangunRuang.setOnClickListener(this)
+
     }
 
     override fun onClick(v: View) {
@@ -52,6 +55,19 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun playSound(id: Int) {
+        try {
+            if (mp == null) {
+                mp = MediaPlayer.create(this, id)
+                Log.d("MainMenuActivity", "ID = ${mp!!.audioSessionId}")
+            }
+            mp?.start()
+            mp?.isLooping = true
+        } catch (e: java.lang.NullPointerException) {
+            Log.e("Error", " E : $e")
+        }
+    }
+
     override fun onStart() {
         super.onStart()
         playSound(this.backsoundHome[0])
@@ -66,16 +82,15 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun playSound(id: Int) {
-        try {
-            if (mp == null) {
-                mp = MediaPlayer.create(this, id)
-                Log.d("MainMenuActivity", "ID = ${mp!!.audioSessionId}")
-            }
-            mp?.start()
-            mp?.isLooping = true
-        } catch (e: java.lang.NullPointerException) {
-            Log.e("Error", " E : $e")
+    @Suppress("DEPRECATION")
+    override fun onBackPressed() {
+        if (backPress + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed()
+            return
+        } else {
+            Toast.makeText(baseContext, "Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT).show()
         }
+        System.currentTimeMillis().also { backPress = it }
     }
+
 }

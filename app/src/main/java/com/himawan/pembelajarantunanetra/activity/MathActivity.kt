@@ -14,8 +14,8 @@ class MathActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary_variant_1) //Set StatusBar Color
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //Always LightTheme
+        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary_variant_1)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = ActivityMathBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

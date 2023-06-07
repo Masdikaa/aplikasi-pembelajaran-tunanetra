@@ -222,4 +222,9 @@ class QuizFragment : Fragment(), View.OnClickListener {
         return answer + randomNumber
     }
 
+    override fun onStop() {
+        super.onStop()
+
+    }
+
 }
