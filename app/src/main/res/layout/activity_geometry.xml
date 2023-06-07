@@ -24,59 +24,49 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/header_bangun_ruang"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="left"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:fontFamily="@font/poppins_regular"
+        android:text="Bangun Ruang"
+        android:textColor="@color/primary"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/vertical_guideline_1" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Bangun Ruang"
-            android:textColor="@color/primary"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Berikut adalah beberapa gambar dari bangun ruang"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/kiri"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline_2"
+        app:layout_constraintStart_toEndOf="@id/vertical_guideline_1" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-10dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Berikut adalah beberapa gambar dari bangun ruang"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <View
-            android:id="@+id/kiri"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@android:color/darker_gray" />
-
-    </LinearLayout>
+    <View
+        android:id="@+id/kiri"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_header"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline_2"
+        app:layout_constraintStart_toEndOf="@id/vertical_guideline_1" />
 
     <LinearLayout
         android:id="@+id/image_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/linear_layout_background"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_bangun_ruang">
+        app:layout_constraintBottom_toTopOf="@id/bottom_image_guideline"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline_2"
+        app:layout_constraintStart_toEndOf="@id/vertical_guideline_1"
+        app:layout_constraintTop_toBottomOf="@id/top_image_guideline">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -84,19 +74,20 @@
 
             <ImageView
                 android:id="@+id/image_bangun_ruang"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:src="@color/purple_500"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/end_image_guideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/start_image_guideline"
+                app:layout_constraintTop_toBottomOf="@id/top_image_guideline1"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tv_nama_bangun_ruang"
-                android:layout_width="300dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/bebas_regular"
                 android:text="Nama Bangun Ruang"
@@ -104,72 +95,155 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/image_bangun_ruang"
+                app:layout_constraintStart_toStartOf="@id/image_bangun_ruang"
                 app:layout_constraintTop_toBottomOf="@id/image_bangun_ruang" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image_bangun_ruang">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_play_voice"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:backgroundTint="@color/secondary_variant_1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="8dp"
+                app:layout_constraintBottom_toTopOf="@id/button_voice_bottom_guideline"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/button_voice_end_guideline"
+                app:layout_constraintStart_toEndOf="@id/button_voice_start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/button_voice_top_guideline">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_play_voice"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="30dp"
-                    android:backgroundTint="@color/secondary_variant_1"
-                    app:cardCornerRadius="50dp"
-                    app:cardElevation="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/btn_volume"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/volume"
+                    tools:ignore="ContentDescription" />
 
-                    <ImageView
-                        android:id="@+id/btn_volume"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="20dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/volume" />
+            </androidx.cardview.widget.CardView>
 
-                </androidx.cardview.widget.CardView>
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_background_1"
+                android:fontFamily="@font/bebas_regular"
+                android:text="Prev"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_play_voice"
+                app:layout_constraintEnd_toStartOf="@id/btn_play_voice"
+                app:layout_constraintStart_toStartOf="@id/tv_nama_bangun_ruang"
+                app:layout_constraintTop_toTopOf="@id/btn_play_voice" />
 
-                <Button
-                    android:id="@+id/btn_back"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/button_background_1"
-                    android:fontFamily="@font/bebas_regular"
-                    android:text="Prev"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/btn_play_voice"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/button_background_1"
+                android:fontFamily="@font/bebas_regular"
+                android:text="Next"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_play_voice"
+                app:layout_constraintEnd_toEndOf="@id/tv_nama_bangun_ruang"
+                app:layout_constraintStart_toEndOf="@id/btn_play_voice"
+                app:layout_constraintTop_toTopOf="@id/btn_play_voice" />
 
-                <Button
-                    android:id="@+id/btn_next"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/button_background_1"
-                    android:fontFamily="@font/bebas_regular"
-                    android:text="Next"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/btn_play_voice"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/vertical_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/button_voice_start_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.38" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/button_voice_end_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.62" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/button_voice_top_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.80" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/button_voice_bottom_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_image_guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.037" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_image_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_image_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_image_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_image_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guideline_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.19" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,6 +44,7 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/kiri"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline_2"
         app:layout_constraintStart_toEndOf="@id/vertical_guideline_1" />
 
     <View
@@ -78,6 +79,7 @@
                 android:src="@color/purple_500"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@id/end_image_guideline"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/start_image_guideline"
                 app:layout_constraintTop_toBottomOf="@id/top_image_guideline1" />
 
@@ -159,7 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="140dp" />
+                app:layout_constraintGuide_percent="0.38" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/button_voice_end_guideline"
