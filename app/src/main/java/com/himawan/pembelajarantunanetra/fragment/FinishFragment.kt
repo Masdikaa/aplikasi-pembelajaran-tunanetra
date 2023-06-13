@@ -15,8 +15,6 @@ class FinishFragment : Fragment() {
 
     private var _binding: FragmentFinishBinding? = null
     private val binding get() = _binding!!
-    private val activityMenu = activity
-//    private val context: Context = requireContext().applicationContext
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +32,6 @@ class FinishFragment : Fragment() {
 
         binding.btnMenu.setOnClickListener {
             val intent = Intent(context, MainMenuActivity::class.java)
-            activityMenu.finish()
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }

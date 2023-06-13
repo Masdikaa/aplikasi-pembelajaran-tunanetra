@@ -30,6 +30,7 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
         binding.cardMatematika.setOnClickListener(this)
         binding.cardOrgan.setOnClickListener(this)
         binding.cardBangunRuang.setOnClickListener(this)
+        binding.cardBernyanyi.setOnClickListener(this)
 
     }
 
@@ -40,17 +41,25 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
                 clickSound.start()
                 startActivity(Intent(this, HewanActivity::class.java))
             }
+
             R.id.card_matematika -> {
                 clickSound.start()
                 startActivity(Intent(this, MathActivity::class.java))
             }
+
             R.id.card_organ -> {
                 clickSound.start()
                 startActivity(Intent(this, OrgansActivity::class.java))
             }
+
             R.id.card_bangun_ruang -> {
                 clickSound.start()
                 startActivity(Intent(this, GeometryActivity::class.java))
+            }
+
+            R.id.card_bernyanyi -> {
+                clickSound.start()
+                startActivity(Intent(this, SingGamesActivity::class.java))
             }
         }
     }
