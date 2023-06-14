@@ -34,4 +34,6 @@
     <string name="operasi_matematika_option">Operasi\nMatematika</string>
     <string name="anggota_tubuh_manusia_option">Anggota tubuh\nmanusia</string>
     <string name="bangun_ruang_option">Bangun Ruang</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
