@@ -44,7 +44,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="Kuis Anggota Tubuh"
                 android:textColor="@color/primary"
-                android:textSize="28sp"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -54,7 +54,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="Pilih jawaban yang benar dari pertanyaan berikut ini !"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/kiri"
@@ -88,7 +88,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="No 1"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="21sp"
                     app:layout_constraintBottom_toTopOf="@id/top_number_guideline_1"
                     app:layout_constraintStart_toEndOf="@id/start_margin_guideline" />
 

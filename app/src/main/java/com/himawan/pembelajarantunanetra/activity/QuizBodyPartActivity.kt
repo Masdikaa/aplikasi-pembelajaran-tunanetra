@@ -22,7 +22,7 @@ class QuizBodyPartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnStart.setOnClickListener {
-            window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+            window.statusBarColor = ContextCompat.getColor(this, R.color.secondary_variant_1)
             binding.mainLayout.setBackgroundColor(255)
             // Inisiasi Menu Fragment
             supportFragmentManager.beginTransaction().replace(R.id.frame_ly, BodyPartQuizFragment())
