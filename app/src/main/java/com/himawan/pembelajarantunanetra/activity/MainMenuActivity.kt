@@ -31,6 +31,7 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
         binding.cardOrgan.setOnClickListener(this)
         binding.cardBangunRuang.setOnClickListener(this)
         binding.cardBernyanyi.setOnClickListener(this)
+        binding.cardKuisTubuh.setOnClickListener(this)
 
     }
 
@@ -60,6 +61,11 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
             R.id.card_bernyanyi -> {
                 clickSound.start()
                 startActivity(Intent(this, SingGamesActivity::class.java))
+            }
+
+            R.id.card_kuis_tubuh -> {
+                clickSound.start()
+                startActivity(Intent(this, QuizBodyPartActivity::class.java))
             }
         }
     }

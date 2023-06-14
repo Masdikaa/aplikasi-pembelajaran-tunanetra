@@ -15,6 +15,9 @@
         android:theme="@style/Theme.PembelajaranTunanetra"
         tools:targetApi="31">
         <activity
+            android:name=".activity.QuizBodyPartActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.SingGamesActivity"
             android:exported="false" />
         <activity
