@@ -30,7 +30,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Anggota Tubuh"
         android:textColor="@color/primary"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/vertical_guideline_1" />
@@ -42,7 +42,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Berikut anggota tubuh pada\nmanusia"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/kiri"
         app:layout_constraintEnd_toStartOf="@id/vertical_guideline_2"
         app:layout_constraintStart_toEndOf="@id/vertical_guideline_1" />
@@ -93,7 +93,7 @@
                 android:text="Nama Bangun Ruang"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/image_organ"
                 app:layout_constraintStart_toStartOf="@id/image_organ"

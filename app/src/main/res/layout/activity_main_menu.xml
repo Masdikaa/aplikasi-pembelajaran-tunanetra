@@ -56,7 +56,7 @@
             android:fontFamily="@font/poppins_regular"
             android:text="@string/main_menu_desc"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <View
             android:id="@+id/kiri"
@@ -281,7 +281,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:padding="3dp"
-                    android:src="@drawable/geometry"
+                    android:src="@drawable/dance"
                     tools:ignore="ContentDescription" />
 
                 <View
@@ -326,7 +326,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:padding="3dp"
-                    android:src="@drawable/geometry"
+                    android:src="@drawable/body_scan"
                     tools:ignore="ContentDescription" />
 
                 <View
@@ -369,5 +369,57 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="VisualLintBounds" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/grid_layout"
+        app:layout_constraintTop_toBottomOf="@+id/grid_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_regular"
+            android:text="1. Sayidatul Maslahah M.Pd"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_regular"
+            android:text="2. Shiva Hasanata Putri"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_regular"
+            android:text="3. Syifa Mutmainah Suntari"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_regular"
+            android:text="4. Faruq Alkarkani"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_regular"
+            android:text="5. Himawan Lazuardi"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

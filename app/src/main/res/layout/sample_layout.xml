@@ -1,249 +1,424 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.QuizFragment">
+    tools:context=".activity.MainMenuActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="-40dp"
+        android:alpha="0.8"
+        android:background="@drawable/ornamen3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds" />
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="-10dp"
+        android:alpha="0.8"
+        android:background="@drawable/ornamen4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds" />
+
+    <LinearLayout
+        android:id="@+id/menu_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="65dp"
+        android:gravity="start"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginEnd="-40dp"
-            android:alpha="0.8"
-            android:background="@drawable/ornamen3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="-40dp"
-            android:alpha="0.8"
-            android:background="@drawable/ornamen4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/header_quiz"
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_header"
-            app:layout_constraintEnd_toStartOf="@id/vertical_guideline_2"
-            app:layout_constraintStart_toEndOf="@id/vertical_guideline_1">
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/main_menu_title"
+            android:textColor="@color/secondary"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-            <TextView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/main_menu_desc"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <View
+            android:id="@+id/kiri"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/darker_gray" />
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/grid_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20sp"
+        android:columnCount="2"
+        android:rowCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_hewan"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/secondary_variant_2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Kuis Matematika"
-                android:textColor="@color/primary"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_card_primary"
+                android:gravity="start"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Pilih jawaban yang benar dari pertanyaan berikut ini !"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/cat"
+                    tools:ignore="ContentDescription" />
 
-            <View
-                android:id="@+id/kiri"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/darker_gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/image_layout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/linear_layout_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/bottom_image_guideline"
-            app:layout_constraintEnd_toStartOf="@id/vertical_guideline_2"
-            app:layout_constraintStart_toEndOf="@id/vertical_guideline_1"
-            app:layout_constraintTop_toBottomOf="@id/top_image_guideline">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/black" />
 
                 <TextView
-                    android:id="@+id/question_number"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="No 1"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@id/top_number_guideline_1"
-                    app:layout_constraintStart_toEndOf="@id/start_margin_guideline" />
-
-                <TextView
-                    android:id="@+id/question_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center"
-                    android:text="1 + 1 = ?"
-                    android:textAlignment="center"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="@string/nama_hewan_option"
                     android:textColor="@color/black"
-                    android:textSize="40sp"
-                    app:layout_constraintBottom_toTopOf="@id/bottom_question_guideline_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/top_question_guideline_1" />
+                    android:textSize="16sp" />
 
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="0dp"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_matematika"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/secondary_variant_2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_card_primary"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="76dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/calculator"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/start_margin_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/bottom_question_guideline_1">
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="@string/operasi_matematika_option"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                    <RadioButton
-                        android:id="@+id/a_option"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textSize="18sp" />
+            </LinearLayout>
 
-                    <RadioButton
-                        android:id="@+id/b_option"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="200"
-                        android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
 
-                    <RadioButton
-                        android:id="@+id/c_option"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="2"
-                        android:textSize="18sp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_organ"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/secondary_variant_2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
 
-                </RadioGroup>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_card_primary"
+                android:gravity="start"
+                android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/top_number_guideline_1"
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:src="@drawable/human_body"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.07" />
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="@string/anggota_tubuh_manusia_option"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/top_question_guideline_1"
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_bangun_ruang"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/secondary_variant_2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_card_primary"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:src="@drawable/geometry"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.10" />
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="@string/bangun_ruang_option"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/bottom_question_guideline_1"
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_bernyanyi"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/secondary_variant_2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_card_primary"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:src="@drawable/dance"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.60" />
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="Bernyanyi bersama"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/start_margin_guideline"
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_kuis_tubuh"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/secondary_variant_2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_card_primary"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:src="@drawable/body_scan"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.05" />
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bebas_regular"
+                    android:text="Kuis Anggota Tubuh\nManusia"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="0dp"
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="-40dp"
+        android:background="@drawable/ornamen1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintBounds" />
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="-40dp"
+        android:alpha="0.8"
+        android:background="@drawable/ornamen2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintBounds" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/grid_layout"
+        app:layout_constraintTop_toBottomOf="@+id/grid_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background_1"
             android:fontFamily="@font/bebas_regular"
-            android:text="Next"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/top_button_guideline"
-            app:layout_constraintEnd_toStartOf="@id/vertical_end_axis"
-            app:layout_constraintStart_toEndOf="@id/vertical_start_axis" />
+            android:text="1. Sayidatul Maslahah M.Pd"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top_button_guideline"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.92" />
+            android:fontFamily="@font/bebas_regular"
+            android:text="2. Shiva Hasanata Putri"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_main_axis"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+            android:fontFamily="@font/bebas_regular"
+            android:text="3. Syifa Mutmainah Suntari"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_start_axis"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.40" />
+            android:fontFamily="@font/bebas_regular"
+            android:text="4. Faruq Alkarkani"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_end_axis"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.60" />
+            android:fontFamily="@font/bebas_regular"
+            android:text="5. Himawan Lazuardi"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/horizontal_guideline_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.19" />
+    </LinearLayout>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top_image_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.20" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_image_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.78" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_guideline_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_guideline_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
